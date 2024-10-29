@@ -1,4 +1,4 @@
-// import  from './styles'
+import '../styles/general.css';
 import { useState } from "react"
 
 function Header({fullName}){
@@ -8,13 +8,30 @@ function Header({fullName}){
         </>
     )
 }
-function EditName({handleFirst,handleLast}){
+function EditPersonal(props){
     return (
         <>
-            <label for='firstName'>First Name:</label>
-            <input id='firstName' onChange={handleFirst}></input>
-            <label for='lastName'>Last Name:</label>
-            <input id='lastName' onChange={handleLast}></input>
+            <form action="" className="form">
+                <div className="formHeader">
+                    <h1 className="formHeading">Personal Details</h1>
+                    <img src="../public/dropdown.png" alt="dropdown" className="dropdown" />
+                </div>
+                <label htmlFor="firstName" className="form__label">First Name:</label>
+                <input id="firstName" onChange={props.handleNames} className="form__input" />
+
+                <label htmlFor="lastName" className="form__label">Last Name:</label>
+                <input id="lastName" onChange={props.handleNames} className="form__input" />
+
+                <label htmlFor="email" className="form__label">Email:</label>
+                <input id="email" onChange={props.handleEmail} className="form__input" />
+
+                <label htmlFor="phone" className="form__label">Phone Number:</label>
+                <input id="phone" onChange={props.handleLast} className="form__input" />
+
+                <label htmlFor="address" className="form__label">Address:</label>
+                <input id="address" onChange={props.handleLast} className="form__input" />
+            </form>
+
         </>
     )
 }
@@ -24,21 +41,20 @@ function Information(){
     const [lastName,setlastName] = useState("")
     const fullName = firstName + ' ' + lastName
 
-    function handleFirst(e){
-        setfirstName(e.target.value)
-    }
-    function handleLast(e){
-        setlastName(e.target.value)
+    // MAYBE ADD WHOLE FORM IN OBJ FOR STATE
+
+    function handleNames(e){
+        (e.target.id === 'firstName') ? setfirstName(e.target.value) : setlastName(e.target.value);
     }
 
     return (
         <>
 
             <div className="editGeneral">
-                <EditName handleFirst={handleFirst} handleLast={handleLast}/>
+                <EditPersonal handleNames={handleNames}/>
             </div>
             <div className="displayGeneral">
-                <Header fullName={fullName} />
+                {/* <Header fullName={fullName} /> */}
                 <div className="info">
                     {/* <Email/>
                     <Phone/>

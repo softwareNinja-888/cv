@@ -1,1 +1,48 @@
-/* import  */
+/* Form Container */
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label Styling */
+.form__label {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Input Styling */
+.form__input {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form__input:focus {
+    border-color: #007bff;
+}
+
+/* FORMHEADER  */
+.formHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.dropdown{
+    cursor: pointer;
+    align-self: center;
+    width: 25px;
+    height: 35px;
+}
