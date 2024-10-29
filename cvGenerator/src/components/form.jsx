@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export function Form(props){
 
-    const [isOpen,setIsOpen] = useState(false)
+    const [isOpen,setIsOpen] = useState(true)
 
     function toogleDisplay(){
         setIsOpen(!isOpen)
@@ -11,15 +11,22 @@ export function Form(props){
 
     function dropFunc(el){
         const form = document.querySelector(`.${el}`);
+        const formHeader = Array.from(form.children).filter(child => child.classList.contains('formHeader'))
+        const imgDrop = formHeader[0].children[1]
 
         const elements = Array.from(form.children).filter(
         child => !child.classList.contains('formHeader')
         );
-
-        elements.forEach(element => {
-            (isOpen) ? element.style.display = 'block' : element.style.display = 'none' 
-        });
         toogleDisplay()
+        elements.forEach(element => {
+            if (isOpen) {
+                element.style.display = 'block'
+                imgDrop.style.transform = 'rotate(180deg)'
+            } else if (!isOpen){
+                element.style.display = 'none'
+                imgDrop.style.transform = 'rotate(-360deg)'
+            }
+        });
 
     }
     return (
