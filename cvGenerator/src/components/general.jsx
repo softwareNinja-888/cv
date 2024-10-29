@@ -1,5 +1,6 @@
 import '../styles/general.css';
 import { useState } from "react"
+import { Form } from './form.jsx';
 
 function Header({fullName}){
     return (
@@ -8,33 +9,7 @@ function Header({fullName}){
         </>
     )
 }
-function EditPersonal(props){
-    return (
-        <>
-            <form action="" className="form">
-                <div className="formHeader">
-                    <h1 className="formHeading">Personal Details</h1>
-                    <img src="../public/dropdown.png" alt="dropdown" className="dropdown" />
-                </div>
-                <label htmlFor="firstName" className="form__label">First Name:</label>
-                <input id="firstName" onChange={props.handleNames} className="form__input" />
 
-                <label htmlFor="lastName" className="form__label">Last Name:</label>
-                <input id="lastName" onChange={props.handleNames} className="form__input" />
-
-                <label htmlFor="email" className="form__label">Email:</label>
-                <input id="email" onChange={props.handleEmail} className="form__input" />
-
-                <label htmlFor="phone" className="form__label">Phone Number:</label>
-                <input id="phone" onChange={props.handleLast} className="form__input" />
-
-                <label htmlFor="address" className="form__label">Address:</label>
-                <input id="address" onChange={props.handleLast} className="form__input" />
-            </form>
-
-        </>
-    )
-}
 
 function Information(){
     const [firstName,setfirstName] = useState("")
@@ -47,11 +22,39 @@ function Information(){
         (e.target.id === 'firstName') ? setfirstName(e.target.value) : setlastName(e.target.value);
     }
 
+    const personalInfo = {
+        section: 'Personal Details',
+        one: ['firstName','First Name:'],
+        two: ['lastName', 'Last Name:'],
+        three: ['email','Email:'],
+        four: ['phone', 'Phone'],
+        five: ['address','Address:'],
+    }
+
+    const education = {
+        section: 'Education',
+        one: ['school','School:'],
+        two: ['degree', 'Degree:'],
+        three: ['location','Location:'],
+        four: ['start', 'Start Date:'],
+        five: ['end','End Date:'],
+    }
+    const experinece = {
+        section: 'Experience',
+        one: ['company','Company Name:'],
+        two: ['position', 'Position:'],
+        three: ['location','Location:'],
+        four: ['start', 'Start Date:'],
+        five: ['end','End Date:'],
+    }
+
     return (
         <>
 
             <div className="editGeneral">
-                <EditPersonal handleNames={handleNames}/>
+                <Form personalInfo={personalInfo} handleNames={handleNames}/>
+                <Form personalInfo={education} handleNames={handleNames}/>
+                <Form personalInfo={experinece} handleNames={handleNames}/>
             </div>
             <div className="displayGeneral">
                 {/* <Header fullName={fullName} /> */}
