@@ -1,10 +1,33 @@
+import { drop } from "lodash";
+import { useState } from "react";
+
 export function Form(props){
+
+    const [isOpen,setIsOpen] = useState(false)
+
+    function toogleDisplay(){
+        setIsOpen(!isOpen)
+    }
+
+    function dropFunc(el){
+        const form = document.querySelector(`.${el}`);
+
+        const elements = Array.from(form.children).filter(
+        child => !child.classList.contains('formHeader')
+        );
+
+        elements.forEach(element => {
+            (isOpen) ? element.style.display = 'block' : element.style.display = 'none' 
+        });
+        toogleDisplay()
+
+    }
     return (
         <>
-            <form action="" className="form">
+            <form action="" className={props.personalInfo.form}>
                 <div className="formHeader">
                     <h1 className="formHeading">{props.personalInfo.section}</h1>
-                    <img src="/dropdown.png" alt="dropdown" className="dropdown" />
+                    <img src="/dropdown.png" alt="dropdown" className="dropdown" onClick={()=>{dropFunc(props.personalInfo.form)}}/>
                 </div>
                 <label htmlFor={props.personalInfo.one[0]} className="form__label">{props.personalInfo.one[1]}</label>
                 <input id={props.personalInfo.one[0]} onChange={props.handleNames} className="form__input" />

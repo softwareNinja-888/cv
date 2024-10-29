@@ -1,6 +1,9 @@
 import '../styles/general.css';
 import { useState } from "react"
 import { Form } from './form.jsx';
+import { formData } from '../data/formData.js';
+
+// ADD HEADER/CV BODY IN OWN JSX
 
 function Header({fullName}){
     return (
@@ -16,45 +19,17 @@ function Information(){
     const [lastName,setlastName] = useState("")
     const fullName = firstName + ' ' + lastName
 
-    // MAYBE ADD WHOLE FORM IN OBJ FOR STATE
-
     function handleNames(e){
         (e.target.id === 'firstName') ? setfirstName(e.target.value) : setlastName(e.target.value);
-    }
-
-    const personalInfo = {
-        section: 'Personal Details',
-        one: ['firstName','First Name:'],
-        two: ['lastName', 'Last Name:'],
-        three: ['email','Email:'],
-        four: ['phone', 'Phone'],
-        five: ['address','Address:'],
-    }
-
-    const education = {
-        section: 'Education',
-        one: ['school','School:'],
-        two: ['degree', 'Degree:'],
-        three: ['location','Location:'],
-        four: ['start', 'Start Date:'],
-        five: ['end','End Date:'],
-    }
-    const experinece = {
-        section: 'Experience',
-        one: ['company','Company Name:'],
-        two: ['position', 'Position:'],
-        three: ['location','Location:'],
-        four: ['start', 'Start Date:'],
-        five: ['end','End Date:'],
     }
 
     return (
         <>
 
             <div className="editGeneral">
-                <Form personalInfo={personalInfo} handleNames={handleNames}/>
-                <Form personalInfo={education} handleNames={handleNames}/>
-                <Form personalInfo={experinece} handleNames={handleNames}/>
+                <Form personalInfo={formData.personalInfo} handleNames={handleNames}/>
+                <Form personalInfo={formData.education} handleNames={handleNames}/>
+                <Form personalInfo={formData.experience} handleNames={handleNames}/>
             </div>
             <div className="displayGeneral">
                 {/* <Header fullName={fullName} /> */}
