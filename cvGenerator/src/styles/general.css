@@ -6,21 +6,19 @@
   font-style: normal;
 }
 
- /* Define Bold Font */
-/* @font-face {
-  font-family: 'YourFontNameBold';
-  src: url('./assets/fonts/YourFont-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal; 
+@font-face {
+  font-family: 'Mont';
+  src: url('../assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* Define Italic Font */
-/* @font-face {
-  font-family: 'YourFontNameItalic';
-  src: url('./assets/fonts/YourFont-Italic.ttf') format('truetype');
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald/Oswald-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
-  font-style: italic;
-}  */
+  font-style: normal;
+} 
 
 /* Form Container */
 .formPersonal,.formEducation,.formExperience {
@@ -85,7 +83,6 @@ form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
     max-width: 35vw;
 }
 .displayGeneral{
-    border: red solid 1px;
     min-width: 65vw;
 
 }
@@ -120,6 +117,31 @@ form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
 }
 .fullName{
     text-align: center;
+}
+
+.titleContainer{
+    background-color: #3d3d3d;
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    font-family: "Mont";
+    font-size: 12px;
+}
+
+/* Body */
+
+.detailsDisplay{
+    display: flex;
+    gap: 30px;
+    width: 88%;
+    margin: 0 auto;
+}
+.school{
+    font-family: "Mont";
+    font-weight: bolder;
+}
+.startEndDate,.place,.qualification{
+    font-family: "Roboto";
 }
 /* GREY:#3d3d3d*/
 /* BLUE: #043382 */

@@ -2,44 +2,10 @@ import '../styles/general.css';
 import { useState } from "react"
 import { Form } from './form.jsx';
 import { formData } from '../data/formData.js';
+import { Header,Email,Phone,Location } from './header.jsx';
+import { Body } from './education.jsx';
 
-// ADD HEADER/CV BODY IN OWN JSX
-
-function Header({fullName}){
-    return (
-        <>
-            <h1 className="fullName">{fullName}</h1>
-        </>
-    )
-}
-function Email({email}){
-    return(
-        <div className="emailCon infoCon">
-            <img src="/email.png" alt="emailLogo" className="emailLogo" />
-            <p className='emailDisplay display'>{email}</p>
-        </div>
-    )
-}
-function Phone({phone}){
-    return(
-        <div className="phoneCon infoCon">
-            <img src="/phone.png" alt="phoneLogo" className="phoneLogo" />
-            <p className='phoneDisplay display'>{phone}</p>
-        </div>
-    )
-}
-function Location({location}){
-    return(
-        <div className="locationCon infoCon">
-            <img src="/location.png" alt="locationlogo" className="locationlogo" />
-            <p className='locationDisplay display'>{location}</p>
-        </div>
-    )
-}
-
-
-
-function Information(){
+export function Layout(){
     const [formValues,setFormValues] = useState({
         firstName: "James",
         lastName: "Reel",
@@ -75,17 +41,14 @@ function Information(){
                             <Location location={formValues.address}/>
                         </div>
                     </div>
+                    <div className="educationCon">
+                        <Body title='Education' isEl={true}/>
+                    </div>
+                    <div className="experienceCon">
+                        <Body title='Experience' isEl={true}/>
+                    </div>
                 </div>
             </div>
-        </>
-    )
-}
-
-export function General(){
-
-    return (
-        <>
-            <Information/>
         </>
     )
 }
