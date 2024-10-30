@@ -12,31 +12,69 @@ function Header({fullName}){
         </>
     )
 }
+function Email({email}){
+    return(
+        <div className="emailCon infoCon">
+            <img src="/email.png" alt="emailLogo" className="emailLogo" />
+            <p className='emailDisplay display'>{email}</p>
+        </div>
+    )
+}
+function Phone({phone}){
+    return(
+        <div className="phoneCon infoCon">
+            <img src="/phone.png" alt="phoneLogo" className="phoneLogo" />
+            <p className='phoneDisplay display'>{phone}</p>
+        </div>
+    )
+}
+function Location({location}){
+    return(
+        <div className="locationCon infoCon">
+            <img src="/location.png" alt="locationlogo" className="locationlogo" />
+            <p className='locationDisplay display'>{location}</p>
+        </div>
+    )
+}
+
 
 
 function Information(){
-    const [firstName,setfirstName] = useState("")
-    const [lastName,setlastName] = useState("")
-    const fullName = firstName + ' ' + lastName
+    const [formValues,setFormValues] = useState({
+        firstName: "James",
+        lastName: "Reel",
+        email: "example@gmail.com",
+        phone: "+2763 171 6764",
+        address: "London, UK"
+    })
+    const fullName = `${formValues.firstName} ${formValues.lastName}`
 
-    function handleNames(e){
-        (e.target.id === 'firstName') ? setfirstName(e.target.value) : setlastName(e.target.value);
+    function handleStates(e){
+        const {id,value} = e.target;
+        setFormValues((prevValues)=>({
+            ...prevValues,
+            [id]: value
+        }))
     }
 
     return (
         <>
 
-            <div className="editGeneral">
-                <Form personalInfo={formData.personalInfo} handleNames={handleNames}/>
-                <Form personalInfo={formData.education} handleNames={handleNames}/>
-                <Form personalInfo={formData.experience} handleNames={handleNames}/>
-            </div>
-            <div className="displayGeneral">
-                {/* <Header fullName={fullName} /> */}
-                <div className="info">
-                    {/* <Email/>
-                    <Phone/>
-                    <Location/> */}
+            <div className="mainContainer">
+                <div className="editGeneral">
+                    <Form formInfo={formData.personalInfo} handleStates={handleStates}/>
+                    <Form formInfo={formData.education} handleStates={handleStates}/>
+                    <Form formInfo={formData.experience} handleStates={handleStates}/>
+                </div>
+                <div className="displayGeneral">
+                    <div className="displayHeader">
+                        <Header fullName={fullName} />
+                        <div className="info">
+                            <Email email={formValues.email}/>
+                            <Phone phone={formValues.phone}/>
+                            <Location location={formValues.address}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
