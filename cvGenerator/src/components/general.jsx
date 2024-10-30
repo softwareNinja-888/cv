@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Form } from './form.jsx';
 import { formData } from '../data/formData.js';
 import { Header,Email,Phone,Location } from './header.jsx';
-import { Body } from './education.jsx';
+import { HeaderDisplay,LeftDisplay,RightDisplay} from './education.jsx';
 
 export function Layout(){
     const [formValues,setFormValues] = useState({
@@ -11,9 +11,22 @@ export function Layout(){
         lastName: "Reel",
         email: "example@gmail.com",
         phone: "+2763 171 6764",
-        address: "London, UK"
+        address: "London, UK",
+        school: 'University of London',
+        degree: 'Bachelors Of Commerce',
+        location: 'London, UK',
+        startEdu: '01/2020',
+        endEdu: '12/2022',
+        company: 'Google',
+        position: 'Manager',
+        locationXp: 'Silicon Valley',
+        startXp: '06/2022',
+        endXp: 'present',
     })
     const fullName = `${formValues.firstName} ${formValues.lastName}`
+    const displayDateEd = `${formValues.startEdu} - ${formValues.endEdu}`
+
+    const displayDateXp = `${formValues.startXp} - ${formValues.endXp}`
 
     function handleStates(e){
         const {id,value} = e.target;
@@ -42,10 +55,18 @@ export function Layout(){
                         </div>
                     </div>
                     <div className="educationCon">
-                        <Body title='Education' isEl={true}/>
+                        <HeaderDisplay title='Education'/>
+                        <div className="detailsDisplay">
+                            <LeftDisplay title='Education' displayDate={displayDateEd} values={formValues}/>
+                            <RightDisplay title='Education' values={formValues}/>
+                        </div>
                     </div>
                     <div className="experienceCon">
-                        <Body title='Experience' isEl={true}/>
+                        <HeaderDisplay title='Experience'/>
+                        <div className="detailsDisplay">
+                            <LeftDisplay title='Experience' displayDate={displayDateXp} values={formValues}/>
+                            <RightDisplay title='Experience' values={formValues}/>
+                        </div>
                     </div>
                 </div>
             </div>

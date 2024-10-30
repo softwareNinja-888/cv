@@ -14,17 +14,17 @@ export const formData = (function (){
         one: ['school','School:'],
         two: ['degree', 'Degree:'],
         three: ['location','Location:'],
-        four: ['start', 'Start Date:'],
-        five: ['end','End Date:'],
+        four: ['startEd', 'Start Date:'],
+        five: ['endEd','End Date:'],
         form: 'formEducation',
     }
     const experience = {
         section: 'Experience',
         one: ['company','Company Name:'],
         two: ['position', 'Position:'],
-        three: ['location','Location:'],
-        four: ['start', 'Start Date:'],
-        five: ['end','End Date:'],
+        three: ['locationXp','Location:'],
+        four: ['startXp', 'Start Date:'],
+        five: ['endXp','End Date:'],
         form: 'formExperience'
     }
 
