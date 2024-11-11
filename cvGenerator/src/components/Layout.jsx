@@ -1,11 +1,15 @@
 import '../styles/general.css';
 import { useState } from "react"
-import { Form } from './form.jsx';
+import { Form } from './Form.jsx';
 import { formData } from '../data/formData.js';
-import { Header,Email,Phone,Location } from './header.jsx';
-import { HeaderDisplay,LeftDisplay,RightDisplay} from './education.jsx';
+import { Header,Email,Phone,Location } from './DisplayHeader.jsx';
+import { HeaderDisplay,LeftDisplay,RightDisplay} from './Section.jsx';
+import { MainHeader } from './Header.jsx';
 
 export function Layout(){
+
+    // DATA TO DISPLAY ON CV:
+
     const [formValues,setFormValues] = useState({
         firstName: "James",
         lastName: "Reel",
@@ -23,10 +27,14 @@ export function Layout(){
         startXp: '06/2022',
         endXp: 'present',
     })
+
+    // COMBINE STATES:
+
     const fullName = `${formValues.firstName} ${formValues.lastName}`
     const displayDateEd = `${formValues.startEdu} - ${formValues.endEdu}`
-
     const displayDateXp = `${formValues.startXp} - ${formValues.endXp}`
+
+    // FUNCTION TO HANDLE STATES
 
     function handleStates(e){
         const {id,value} = e.target;
@@ -38,14 +46,22 @@ export function Layout(){
 
     return (
         <>
-
+            <MainHeader/>
             <div className="mainContainer">
+
+                {/* AREA TO INPUT DATA: */}
+
                 <div className="editGeneral">
                     <Form formInfo={formData.personalInfo} handleStates={handleStates}/>
                     <Form formInfo={formData.education} handleStates={handleStates}/>
                     <Form formInfo={formData.experience} handleStates={handleStates}/>
                 </div>
+
+                {/* AREA THAT SHOWS INPUTED DATA:  */}
+
                 <div className="displayGeneral">
+                    {/* CV HEADER: */}
+
                     <div className="displayHeader">
                         <Header fullName={fullName} />
                         <div className="info">
@@ -54,6 +70,8 @@ export function Layout(){
                             <Location location={formValues.address}/>
                         </div>
                     </div>
+                    {/* EDUCATION SECTION OF CV: */}
+
                     <div className="educationCon">
                         <HeaderDisplay title='Education'/>
                         <div className="detailsDisplay">
@@ -61,6 +79,7 @@ export function Layout(){
                             <RightDisplay title='Education' values={formValues}/>
                         </div>
                     </div>
+                    {/* EXPERIENCE SECTION: */}
                     <div className="experienceCon">
                         <HeaderDisplay title='Experience'/>
                         <div className="detailsDisplay">

@@ -20,6 +20,9 @@
   font-style: normal;
 } 
 
+body{
+    margin: 0;
+}
 /* Form Container */
 .formPersonal,.formEducation,.formExperience {
     display: flex;
@@ -142,6 +145,52 @@ form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
 }
 .startEndDate,.place,.qualification{
     font-family: "Roboto";
+}
+
+/* MAIN HEADER */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #3d3d3d;
+    margin-bottom: 20px;
+    
+}
+.leftHead{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+}
+.heading{
+    font-size: 46px;
+    color: white;
+
+    font-family: 'Oswald';
+}
+
+.rightHead{
+    display: flex;
+    align-items: center;
+}
+.save{
+    width: 120px;
+    padding: 6px;
+    background-color: #fff;
+    color: #3d3d3d;
+    font-family: 'Roboto';
+
+    transition: all .3s ease-out;
+    cursor: pointer;
+    max-height: 40%;
+    margin-right: 30px;
+}
+.save:hover{
+    background-color: #2b2b2b;
+    color: white;
+}
+.logo{
+    width: 85px;
 }
 /* GREY:#3d3d3d*/
 /* BLUE: #043382 */
