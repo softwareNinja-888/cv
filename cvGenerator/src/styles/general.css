@@ -29,16 +29,16 @@ body{
     flex-direction: column;
     width: 100%;
     max-width: 300px;
-    margin: 20px;
+    margin-bottom: 20px;
     padding: 20px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-.formPersonal{
+/* .formPersonal{
     margin-top: 0px;
-}
+} */
 form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
     display: none;
 }
@@ -186,7 +186,7 @@ form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
 
     transition: all .3s ease-out;
     cursor: pointer;
-    max-height: 40%;
+    max-height: 45%;
     margin-right: 30px;
 }
 .save:hover{
@@ -196,5 +196,33 @@ form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
 .logo{
     width: 85px;
 }
+
+/* NOT DONE SECTION */
+.not {
+    overflow: hidden; /* Keeps the message within the container */
+    width: 100%; /* Adjust width as needed */
+    background-color: red;
+  }
+  
+  .notMessage {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 24px;
+    color: white; /* Customize the color as needed */
+    animation: slide 17s linear infinite;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(200%);
+    }
+  }
+  
+  
+
+/* END NOT DONE  */
 /* GREY:#3d3d3d*/
-/* BLUE: #043382 */
+/* BLUE: #043382 */ 

@@ -46,7 +46,13 @@ export function Form(props){
                 <input id={props.formInfo.three[0]} onChange={props.handleStates} className="form__input" />
 
                 <label htmlFor={props.formInfo.four[0]} className="form__label">{props.formInfo.four[1]}</label>
-                <input id={props.formInfo.four[0]} onChange={props.handleStates} className="form__input" />
+                { props.formInfo.four[0] === 'phone' ? (
+                    <input id={props.formInfo.four[0]} onChange={props.handleStates} className="form__input" placeholder="+(code) 63 171 6764"/>
+                ) : (
+                    <input id={props.formInfo.four[0]} onChange={props.handleStates} className="form__input" />
+                )
+                }
+                
 
                 <label htmlFor={props.formInfo.five[0]} className="form__label">{props.formInfo.five[1]}</label>
                 <input id={props.formInfo.five[0]} onChange={props.handleStates} className="form__input" />

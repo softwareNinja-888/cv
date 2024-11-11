@@ -5,6 +5,7 @@ import { formData } from '../data/formData.js';
 import { Header,Email,Phone,Location } from './DisplayHeader.jsx';
 import { HeaderDisplay,LeftDisplay,RightDisplay} from './Section.jsx';
 import { MainHeader } from './Header.jsx';
+import {NOTDONE} from './NOTDONE.jsx'
 
 export function Layout(){
 
@@ -22,7 +23,7 @@ export function Layout(){
         startEdu: '01/2020',
         endEdu: '12/2022',
         company: 'Google',
-        position: 'Manager',
+        position: 'Project Manager',
         locationXp: 'Silicon Valley',
         startXp: '06/2022',
         endXp: 'present',
@@ -46,6 +47,7 @@ export function Layout(){
 
     return (
         <>
+            <NOTDONE/>
             <MainHeader/>
             <div className="mainContainer">
 
@@ -92,3 +94,9 @@ export function Layout(){
         </>
     )
 }
+
+// Notes:
+// ADD DATE FUNC
+// LIGHT VALIDATION ON CV IF NEEDED
+// STATES ON EDIT SIDE SO ONE OPENS 
+// ADD MORE THAN ONE EDUCATION
