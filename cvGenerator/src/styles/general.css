@@ -36,6 +36,9 @@ body{
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+.formPersonal{
+    margin-top: 0px;
+}
 form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
     display: none;
 }
@@ -81,6 +84,7 @@ form *:not(.formHeader):not(.formHeader *):not(.dropdown) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 22px;
 }
 .editGeneral{
     max-width: 35vw;

@@ -12,8 +12,6 @@ export function MainHeader(){
             <div className="rightHead">
                 <button type="button" className="save">Download CV</button>
             </div>
-
-           
         </div>
         
     )
